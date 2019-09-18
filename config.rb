@@ -24,7 +24,7 @@ $cli_timeout = ENV['IC_LIMITS_CLIENT_TIMEOUT']
 $hdr_timeout = ENV['IC_LIMITS_HEADER_TIMEOUT']
 $src_timeout = ENV['IC_LIMITS_SOURCE_TIMEOUT']
 
-# $out variable for save new configuration icecast.xml
+# $config variable for save new configuration icecast.xml
 $config = ""
 
 puts 'Generating the new file /etc/icecast2/icecast.xml'
