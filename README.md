@@ -5,8 +5,8 @@ Flexible image Docker to create server Icecast2
 # Instalation and configuration
 Run this sequence of code in your command line:
 ```shell
-docker pull ***
-docker run -p 8000:8000 icecast2
+docker pull perl19/icecast2
+docker run -p 8000:8000 perl19/icecast2
 ```
 
 You can use configuration default of Icecast2 to hostname, user admin and password or to use custom configuration.
@@ -19,7 +19,7 @@ docker run \
     -e IC_AUTH_ADMIN=root \
     -e IC_AUTH_ADMIN_PASS=toor \
     -e IC_SOURCE_PASS=source_pass \
-    icecast2
+    perl19/icecast2
 ```
 
 The list of environment variable, your functionality and default values:
