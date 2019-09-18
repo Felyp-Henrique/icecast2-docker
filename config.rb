@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+# All variables that config the fields of file icecast.xml are environment variable
+# of shell, then this script only get this variables through ENV hashtable and set 
+# the file /etc/icecast2/icecast.xml using ERB template processor
+
 require 'erb'
 
 $admin = ENV['IC_AUTH_ADMIN']
@@ -21,16 +25,16 @@ $hdr_timeout = ENV['IC_LIMITS_HEADER_TIMEOUT']
 $src_timeout = ENV['IC_LIMITS_SOURCE_TIMEOUT']
 
 # $out variable for save new configuration icecast.xml
-$out = ""
+$config = ""
 
 puts 'Generating the new file /etc/icecast2/icecast.xml'
 
 File.open '/icecast.xml.erb', 'r' do |file|
-  $out << ERB.new(file.read).result
+  $config << ERB.new(file.read).result
 end
 
 puts 'Saving now...'
 
 File.open '/etc/icecast2/icecast.xml', 'w' do |file|
-  file.puts $out
+  file.puts $config
 end
