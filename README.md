@@ -3,6 +3,9 @@
 Flexible image Docker to create server Icecast2
 
 # Instalation and configuration
+Below follows all way to config the server using the Docker image. It's separated for three section: first **Normal run**; second, **Service run** and for last **Table of environment variable**.
+
+## Normal run
 Run this sequence of code in your command line:
 ```shell
 docker pull perl19/icecast2
@@ -22,6 +25,9 @@ docker run \
     perl19/icecast2
 ```
 
+## Service run
+
+## Table of environment variable
 The list of environment variable, your functionality and default values:
 
 |Variable|Descrition|Default|
