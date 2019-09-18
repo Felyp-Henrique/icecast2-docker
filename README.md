@@ -3,7 +3,7 @@
 Flexible image Docker to create server Icecast2
 
 # Instalation and configuration
-Below follows all way to config the server using the Docker image. It's separated for three section: first **Normal run**, where show the load of image and execution with some environment variables of configuration; second, **Service run** and for last the **Table of environment variable**.
+Below follows all way to config the server using the Docker image. It's separated for three section: first **Normal run**, where show the load of image and execution with some environment variables of configuration. Second **Service run**, show the example of Docker Compose and for last the **Table of environment variable**.
 
 ## Normal run
 Run this sequence of code in your command line:
