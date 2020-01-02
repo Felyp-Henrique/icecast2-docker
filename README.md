@@ -32,23 +32,23 @@ Save this code in a file named *any-name.yml*:
 ```yml
 version: '3'
 services:
-        icecast:
-                image: perl19/icecast2
-                environment:
-                        - IC_AUTH_ADMIN=admin
-                        - IC_AUTH_ADMIN_PASS=hackme
-                        - IC_SOURCE_PASS=hackme
-                        - IC_HOSTNAME=localhost
-                        - IC_PORT=8000
-                        - IC_LIMITS_CLIENTS=1000
-                        - IC_LIMITS_SOURCES=1
-                        - IC_LIMITS_QUEUE_SIZE=524288
-                        - IC_LIMITS_BURST_SIZE=65535
-                        - IC_LIMITS_CLIENT_TIMEOUT=30
-                        - IC_LIMITS_HEADER_TIMEOUT=15
-                        - IC_LIMITS_SOURCE_TIMEOUT=10
-                ports:
-                        - "8000:8000"
+  icecast:
+    image: perl19/icecast2
+    environment:
+      - IC_AUTH_ADMIN=admin
+      - IC_AUTH_ADMIN_PASS=hackme
+      - IC_SOURCE_PASS=hackme
+      - IC_HOSTNAME=localhost
+      - IC_PORT=8000
+      - IC_LIMITS_CLIENTS=1000
+      - IC_LIMITS_SOURCES=1
+      - IC_LIMITS_QUEUE_SIZE=524288
+      - IC_LIMITS_BURST_SIZE=65535
+      - IC_LIMITS_CLIENT_TIMEOUT=30
+      - IC_LIMITS_HEADER_TIMEOUT=15
+      - IC_LIMITS_SOURCE_TIMEOUT=10
+    ports:
+      - "8000:8000"
 ```
 And run this command in your command line:
 ```shell
