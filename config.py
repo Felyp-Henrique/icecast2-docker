@@ -22,10 +22,11 @@ CONFIG = {
   "hdr_timeout": os.environ['IC_LIMITS_HEADER_TIMEOUT'],
   "src_timeout": os.environ['IC_LIMITS_SOURCE_TIMEOUT'],
 
-  "relay_on": os.environ['IC_RELAY_ON'],
+  "relay_on": os.environ['IC_RELAY_ON'] == "1",
   "relay_host": os.environ['IC_RELAY_HOST'],
   "relay_port": os.environ['IC_RELAY_PORT'],
   "relay_update_interval": os.environ['IC_RELAY_UPDATE_INTERVAL'],
+  "relay_user": os.environ['IC_RELAY_USER'],
   "relay_password": os.environ['IC_RELAY_PASSWORD'],
   "relay_demand": os.environ['IC_RELAY_DEMAND'],
 }
@@ -45,6 +46,9 @@ def save_icecast_xml(icecast_xml):
 def main():
   icecast_xml = generate_icecast_xml()
   save_icecast_xml(icecast_xml)
+  print(CONFIG)
+  print()
+  print(icecast_xml)
 
 if __name__ == "__main__":
   main()

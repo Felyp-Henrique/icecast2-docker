@@ -75,3 +75,9 @@ The list of environment variable, your functionality and default values:
 |IC_LIMITS_CLIENT_TIMEOUT|Timeout of client|30|
 |IC_LIMITS_HEADER_TIMEOUT|Timeout of header|15|
 |IC_LIMITS_SOURCE_TIMEOUT|Timeout of source|10|
+|IC_RELAY_ON|Allow change master relay options. Zero(0) for disable or one(1) for enable|0|
+|IC_RELAY_HOST|Master relay host|127.0.0.1|
+|IC_RELAY_PORT|Master relay port|8001|
+|IC_RELAY_UPDATE_INTERVAL|Master relay update interval|120|
+|IC_RELAY_PASSWORD|Master relay password|hackme|
+|IC_RELAY_DEMAND|Relays on demand|1|

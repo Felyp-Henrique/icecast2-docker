@@ -66,6 +66,7 @@
     <master-server>{{ relay_host }}</master-server>
     <master-server-port>{{ relay_port }}</master-server-port>
     <master-update-interval>{{ relay_update_interval }}</master-update-interval>
+    <master-username>{{ relay_user }}</master-username>
     <master-password>{{ relay_password }}</master-password>
 
     <!-- setting this makes all relays on-demand unless overridden, this is
