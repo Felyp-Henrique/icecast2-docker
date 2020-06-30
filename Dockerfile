@@ -1,6 +1,6 @@
 FROM debian:9.11-slim
 
-MAINTAINER "perl19 & danielm1999"
+MAINTAINER "perl19(docker hub) or Felyp-Henrique(github)"
 
 RUN apt-get update && \
     apt-get full-upgrade --yes && \
