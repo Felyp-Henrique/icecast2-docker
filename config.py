@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env python3
 
 import jinja2
 import os
