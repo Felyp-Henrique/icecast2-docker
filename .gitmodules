@@ -1,3 +1,4 @@
 [submodule "tools/icegen"]
 	path = tools/icegen
 	url = git@github.com:Felyp-Henrique/icegen.git
+	branch = master
