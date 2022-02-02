@@ -1,6 +1,9 @@
 FROM alpine:3.15.0
 
-RUN apk update && apk --no-cache icecast
+RUN apk update && apk add --no-cache icecast
+
+# flags
+ENV DEBUG 0
 
 # admin data
 ENV IC_AUTH_ADMIN "admin"
@@ -19,22 +22,18 @@ ENV IC_LIMITS_BURST_SIZE "65535"
 ENV IC_LIMITS_CLIENT_TIMEOUT "30"
 ENV IC_LIMITS_HEADER_TIMEOUT "15"
 ENV IC_LIMITS_SOURCE_TIMEOUT "10"
-ENV IC_RELAY_ON "0"
-ENV IC_RELAY_HOST "127.0.0.1"
-ENV IC_RELAY_PORT "8001"
-ENV IC_RELAY_UPDATE_INTERVAL "120"
-ENV IC_RELAY_USER "relay"
-ENV IC_RELAY_PASSWORD "hackme"
-ENV IC_RELAY_DEMAND "1"
 
 EXPOSE 8000
 
 WORKDIR /app
 
 VOLUME /etc
+VOLUME /app
 VOLUME /var
 
-# copy configurations
-COPY ./etc/icecast.xml /app
+# copy files needed
+COPY ./bin/icegen /app
+COPY ./etc/ /app/templates/
+COPY ./tools/start.sh /app
 
-ENTRYPOINT [ "icecast", "-c", "/app/icecast.xml" ]
+ENTRYPOINT [ "/bin/sh", "/app/start.sh" ]
