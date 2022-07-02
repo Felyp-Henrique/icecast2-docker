@@ -1,1 +1,4 @@
 /bin
+/.vscode
+/builds
+/icegen-v0.1.1-beta.zip

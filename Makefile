@@ -3,7 +3,14 @@ IMAGE_VERSION = "2.1.0"
 all: clean build
 
 clean:
-	rm -fr bin
+	rm -fr builds
+	rm -fr icegen-v0.1.1-beta.zip
+	sudo docker image rm icecast2:v${IMAGE_VERSION} || true
 
 build:
+	wget https://github.com/Felyp-Henrique/icegen/releases/download/v0.1.1-beta/icegen-v0.1.1-beta.zip
+	mkdir builds
+	mv icegen-v0.1.1-beta.zip builds
+	cd builds && unzip icegen-v0.1.1-beta.zip && rm icegen-v0.1.1-beta.zip
+	cd ..
 	sudo docker image build -t icecast2:v${IMAGE_VERSION} .

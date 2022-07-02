@@ -1,6 +1,18 @@
 FROM alpine:3.15.0
 
-RUN apk update && apk add --no-cache icecast
+VOLUME /etc
+VOLUME /app
+VOLUME /var
+
+WORKDIR /app
+
+RUN apk update && apk add --no-cache icecast \
+    && adduser -D admin \
+    && echo admin:admin | chpasswd \
+    && mkdir -p /var/log/icecast2 \
+    && touch /var/log/icecast2/{error,access}.log
+
+USER admin:admin
 
 # flags
 ENV DEBUG 0
@@ -25,14 +37,8 @@ ENV IC_LIMITS_SOURCE_TIMEOUT "10"
 
 EXPOSE 8000
 
-WORKDIR /app
-
-VOLUME /etc
-VOLUME /app
-VOLUME /var
-
 COPY templates /app/
 COPY scripts/start.sh /app/
-COPY bin/icecast /app/
+COPY builds/builds/linux/icegen /app/
 
 ENTRYPOINT [ "/bin/sh", "/app/start.sh" ]
