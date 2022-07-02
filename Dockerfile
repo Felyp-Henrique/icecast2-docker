@@ -31,9 +31,8 @@ VOLUME /etc
 VOLUME /app
 VOLUME /var
 
-# copy files needed
-COPY ./bin/icegen /app
-COPY ./etc/ /app/templates/
-COPY ./tools/start.sh /app
+COPY templates /app/
+COPY tools/start.sh /app/
+COPY bin/icecast /app/
 
 ENTRYPOINT [ "/bin/sh", "/app/start.sh" ]
