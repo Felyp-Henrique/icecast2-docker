@@ -32,7 +32,7 @@ VOLUME /app
 VOLUME /var
 
 COPY templates /app/
-COPY tools/start.sh /app/
+COPY scripts/start.sh /app/
 COPY bin/icecast /app/
 
 ENTRYPOINT [ "/bin/sh", "/app/start.sh" ]
