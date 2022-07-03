@@ -1,4 +1,4 @@
-IMAGE_VERSION = "2.1.0"
+IMAGE_VERSION = "2.2.0"
 
 all: clean build
 
@@ -14,3 +14,7 @@ build:
 	cd builds && unzip icegen-v0.1.1-beta.zip && rm icegen-v0.1.1-beta.zip
 	cd ..
 	sudo docker image build -t icecast2:v${IMAGE_VERSION} .
+
+publish:
+	sudo docker tag icecast2:v${IMAGE_VERSION} perl19/icecast2:v${IMAGE_VERSION}
+	sudo docker push perl19/icecast2:v${IMAGE_VERSION} 
