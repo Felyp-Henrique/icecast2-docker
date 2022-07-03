@@ -17,4 +17,8 @@ build:
 
 publish:
 	sudo docker tag icecast2:v${IMAGE_VERSION} perl19/icecast2:v${IMAGE_VERSION}
-	sudo docker push perl19/icecast2:v${IMAGE_VERSION} 
+	sudo docker push perl19/icecast2:v${IMAGE_VERSION}
+
+latest:
+	sudo docker tag icecast2:v${IMAGE_VERSION} perl19/icecast2:latest
+	sudo docker push perl19/icecast2:latest
