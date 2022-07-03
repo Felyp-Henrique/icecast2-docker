@@ -8,7 +8,7 @@ if [[ "$DEBUG" -eq "1" ]]; then
     ls -l
 fi
 
-./icegen \
+./icegen new \
     --admin         "$IC_AUTH_ADMIN" \
     --adminpass     "$IC_AUTH_ADMIN_PASS" \
     --burst         "$IC_LIMITS_BURST_SIZE" \
@@ -22,8 +22,8 @@ fi
     --srcpass       "$IC_SOURCE_PASS" \
     --srctimeout    "$IC_LIMITS_SOURCE_TIMEOUT"
 
-icecast -c icecast.xml
+icecast2 -c icecast.xml
 
 if [[ "$DEBUG" -eq "1" ]]; then
-    ash
+    bash
 fi

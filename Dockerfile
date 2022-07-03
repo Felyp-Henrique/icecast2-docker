@@ -1,18 +1,14 @@
-FROM alpine:3.15.0
-
-VOLUME /etc
-VOLUME /app
-VOLUME /var
+FROM debian:sid-slim
 
 WORKDIR /app
 
-RUN apk update && apk add --no-cache icecast \
-    && adduser -D admin \
-    && echo admin:admin | chpasswd \
-    && mkdir -p /var/log/icecast2 \
-    && touch /var/log/icecast2/{error,access}.log
+COPY templates /app/templates
+COPY scripts/start.sh /app/
+COPY builds/builds/linux/icegen /app/
 
-USER admin:admin
+RUN apt update \
+    && apt install icecast2 -y \
+    && chmod 777 -R /app
 
 # flags
 ENV DEBUG 0
@@ -37,8 +33,10 @@ ENV IC_LIMITS_SOURCE_TIMEOUT "10"
 
 EXPOSE 8000
 
-COPY templates /app/
-COPY scripts/start.sh /app/
-COPY builds/builds/linux/icegen /app/
+VOLUME /etc
+VOLUME /app
+VOLUME /var
 
-ENTRYPOINT [ "/bin/sh", "/app/start.sh" ]
+USER icecast2
+
+ENTRYPOINT [ "/bin/bash", "start.sh" ]

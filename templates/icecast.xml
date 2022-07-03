@@ -137,10 +137,10 @@
     </logging>
 
     <security>
-        <chroot>1</chroot>
+        <chroot>0</chroot>
         <changeowner>
-            <user>admin</user>
-            <group>admin</group>
+            <user>icecast2</user>
+            <group>icecast2</group>
         </changeowner>
     </security>
 </icecast>
