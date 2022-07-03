@@ -1,2 +1,3 @@
 v1.0-latest
 v2.0-latest
+v2.2.0
